@@ -1,3 +1,4 @@
+import com.tuplejump.sbt.yeoman._
 
 name := "<%= config.app.name %>"
 
@@ -7,6 +8,7 @@ libraryDependencies ++= Seq(
   <%= config.app.dependencies.join(',\n  ') %>
 )
 
-<%= config.app.settings %>
+<%= config.app.settings %> ++ yeomanSettings
+
 
 

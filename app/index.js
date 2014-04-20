@@ -96,6 +96,16 @@ PlayGenerator.prototype.bye = function () {
 // Private utils
 // ----------------------------------------------------------------------------
 
+String.prototype.replaceAll = function(search, replace)
+{
+    //if replace is null, return original string otherwise it will
+    //replace search string with 'undefined'.
+    if(!replace) 
+        return this;
+
+    return this.replace(new RegExp('[' + search + ']', 'g'), replace);
+};
+
 PlayGenerator.prototype._generateSecretKey = function (length) {
   length = length || 64;
   var secretKey = "";
@@ -104,5 +114,5 @@ PlayGenerator.prototype._generateSecretKey = function (length) {
     secretKey += String.fromCharCode(Math.floor(this._.random(74)) + 48);
   }
 
-  return secretKey.replace("\\", "/");
+  return secretKey.replaceAll("\\\\", "/");
 };
