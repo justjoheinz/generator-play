@@ -5,7 +5,7 @@ module.exports = {
     'type': 'input',
     'name': 'playVersion',
     'message': 'Which version of Play! do you want to use?',
-    'default': '2.2.0'
+    'default': '2.2.2'
   },
   {
     'type': 'list',
@@ -17,7 +17,7 @@ module.exports = {
     'type': 'input',
     'name': 'sbtVersion',
     'message': 'Which version of sbt do you want to use?',
-    'default': '0.13.0'
+    'default': '0.13.1'
   },
   {
     'type': 'input',
@@ -41,9 +41,11 @@ module.exports = {
     if (this.instance.prompts.language === 'scala') {
       this.config.global.emptyBrackets = '';
       this.config.app.dependencies = ['jdbc', 'anorm'];
+      this.config.app.settings = 'play.Project.playScalaSettings';
     } else {
       this.config.global.emptyBrackets = '()';
       this.config.app.dependencies = ['javaCore', 'javaJdbc', 'javaEbean'];
+      this.config.app.settings = 'play.Project.playJavaSettings';
     }
   },
   files: {

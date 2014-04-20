@@ -24,6 +24,7 @@ var PlayBase = module.exports =  function PlayBase(args, options) {
 
   // Set paths
   this.paths = this._.extend(this.paths, {
+    "root": path.join(this.constants.PATH_ROOT, '/'),
     "app": path.join(this.constants.PATH_ROOT, '/app'),
     "conf": path.join(this.constants.PATH_ROOT, '/conf'),
     "public": path.join(this.constants.PATH_ROOT, '/public'),
@@ -56,13 +57,13 @@ var PlayBase = module.exports =  function PlayBase(args, options) {
 // Time to extend!
 util.inherits(PlayBase, TemplateGenerator.Base);
 
-// Handling Build.scala and plugins.sbt files
+// Handling build.sbt and plugins.sbt files
 PlayBase.prototype.readBuildAsString = function () {
-  return this.readFileAsString(path.join(this.paths.project, "Build.scala"));
+  return this.readFileAsString(path.join(this.paths.root, "build.sbt"));
 };
 
 PlayBase.prototype.writeBuildFromString = function (stringBuild) {
-  this.writeFileFromString(stringConf, path.join(this.paths.project, "Build.scala"));
+  this.writeFileFromString(stringConf, path.join(this.paths.root, "build.sbt"));
 };
 
 PlayBase.prototype.readPluginsAsString = function () {
@@ -70,7 +71,7 @@ PlayBase.prototype.readPluginsAsString = function () {
 };
 
 PlayBase.prototype.writePluginsFromString = function (stringBuild) {
-  this.writeFileFromString(stringConf, path.join(this.paths.project, "plugins.Sbt"));
+  this.writeFileFromString(stringConf, path.join(this.paths.project, "plugins.sbt"));
 };
 
 PlayBase.prototype.getDependencyRegex = function (packageName, name, version) {
