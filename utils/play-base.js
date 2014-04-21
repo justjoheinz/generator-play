@@ -49,6 +49,8 @@ var PlayBase = module.exports =  function PlayBase(args, options) {
   this.on("end", function () {
     this.log.write();
     this.log.writeln(" " + yoStyle("yo") + playStyle("play!") + "... it is so good!");
+    this.log.writeln(" Now run sbt update and " + yoStyle("yo") + playStyle(" <template>" + "."));
+    this.log.writeln(" Do not forget to adapt ui/Gruntfiles.js after scaffolding an app");
     this.log.write();
   });
 
