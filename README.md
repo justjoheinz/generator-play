@@ -5,7 +5,7 @@ A Yeoman generator to bootstrap and improve Play! applications with integration 
 ## Getting started
 This project is a fork of [pauldijou/generator-play](https://github.com/pauldijou/generator-play) and not officially released yet. It also uses [play-yeoman](https://github.com/tuplejump/play-yeoman) behind the scenes.
 
-- Clone this reosuitory
+- Clone this repository
    ```git clone https://github.com/justjoheinz/generator-play.git```
 - cd into the new directoy
    ```cd generator-play``` 
