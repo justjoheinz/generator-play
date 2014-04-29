@@ -2,6 +2,11 @@
 
 A Yeoman generator to bootstrap and improve Play! applications with integration of the `sbt-yo` plugin, giving you yo, bower and grunt in the sbt console.
 
+## Credits
+
+- [pauldijou/generator-play](https://github.com/pauldijou/generator-play)
+- [play-yeoman](https://github.com/tuplejump/play-yeoman)
+
 ## Getting started
 This project is a fork of [pauldijou/generator-play](https://github.com/pauldijou/generator-play) and not officially released yet. It also uses [play-yeoman](https://github.com/tuplejump/play-yeoman) behind the scenes.
 
@@ -43,10 +48,9 @@ This project is a fork of [pauldijou/generator-play](https://github.com/pauldijo
     ]);
   ``` as described in [play-yeoman](https://github.com/tuplejump/play-yeoman)
 
-## Credits
+## Gotchas
 
-- [pauldijou/generator-play](https://github.com/pauldijou/generator-play)
-- [play-yeoman](https://github.com/tuplejump/play-yeoman)
+Sometimes yo/bower/grunt fail within the sbt console. The reason is frequently, that those command want to take over the console, in order to get user feedback. One common scenario occurs when you try to install dependencies with ```bower install foo --save``` and there is a conflict. You will see ```ECONFLICT Unable to find suitable version for foo```. Simply quit sbt, ```cd ui``` and run your command from there, to see if that resolves the issue.
 
 
 ## License
